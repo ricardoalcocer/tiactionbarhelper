@@ -1,0 +1,11 @@
+<Alloy>
+	<Window class="container" onOpen="doopen">
+		<Button onClick="changeTitle">Change Title</Button>
+		<Button onClick="setUpButtonUp">Set Up Button</Button>
+		<Button onClick="setUpButtonDn">Remove Up Button</Button>
+		<Button onClick="setIcon">Change Icon</Button>
+		<Button onClick="setBackground">Change Background</Button>
+		<Button onClick="show">Show</Button>
+		<Button onClick="hide">Hide</Button>
+	</Window>
+</Alloy>
