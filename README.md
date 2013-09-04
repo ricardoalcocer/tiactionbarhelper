@@ -15,7 +15,7 @@ var ABH=require('actionbarhelper').actionBarHelper;
 var actionBarHelper=new ABH($.index);	
 
 actionBarHelper.setTitle('This is my window title');
-```)
+```
 
 ## License
 
