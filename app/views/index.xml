@@ -7,5 +7,12 @@
 		<Button onClick="setBackground">Change Background</Button>
 		<Button onClick="show">Show</Button>
 		<Button onClick="hide">Hide</Button>
+		<Button onClick="opennewwin">Open New Window</Button>
+		<Menu id="menu" platform="android">
+            <MenuItem id="menuItem" title="Save" icon="Ti.Android.R.drawable.ic_menu_save" onClick="onsaveclick" showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS" />
+            <MenuItem id="menuItem" title="Image" icon="Ti.Android.R.drawable.ic_menu_gallery" onClick="onimageclick" showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS" />
+            <MenuItem id="menuItem" title="About" onClick="onaboutclick" showAsAction="Ti.Android.SHOW_AS_ACTION_NEVER" />
+            <MenuItem id="menuItem" title="Credits" onClick="oncreditsclick" showAsAction="Ti.Android.SHOW_AS_ACTION_NEVER" />
+        </Menu>
 	</Window>
 </Alloy>

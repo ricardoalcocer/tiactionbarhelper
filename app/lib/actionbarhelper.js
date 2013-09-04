@@ -15,7 +15,7 @@
 * limitations under the License.
 */
 var actionBarHelper=function(win){
-	if (OS_ANDROID){
+	if (OS_ANDROID && Ti.Platform.Android.API_LEVEL > 11){
 		this.win=win;
 		this.activity=win.getActivity();
 		this.actionBar=this.activity.actionBar;
@@ -25,7 +25,7 @@ var actionBarHelper=function(win){
 }
 actionBarHelper.prototype.setTitle=function(title){
 	var that=this;
-	if (OS_ANDROID){
+	if (OS_ANDROID && Ti.Platform.Android.API_LEVEL > 11){
 		if (!that.activity){
 			console.log('Error: Unable to get activity...weird');
 		}else{
@@ -39,7 +39,7 @@ actionBarHelper.prototype.setTitle=function(title){
 }
 actionBarHelper.prototype.setUpAction=function(action){
 	var that=this;
-	if (OS_ANDROID){
+	if (OS_ANDROID && Ti.Platform.Android.API_LEVEL > 11){
 		if (!that.activity){
 			console.log('Error: Unable to get activity...weird');
 		}else{
@@ -59,7 +59,7 @@ actionBarHelper.prototype.setUpAction=function(action){
 }
 actionBarHelper.prototype.setBackgroundImage=function(image){
 	var that=this;
-	if (OS_ANDROID){
+	if (OS_ANDROID && Ti.Platform.Android.API_LEVEL > 11){
 		if (!that.activity){
 			console.log('Error: Unable to get activity...weird');
 		}else{
@@ -73,7 +73,7 @@ actionBarHelper.prototype.setBackgroundImage=function(image){
 }
 actionBarHelper.prototype.setIcon=function(icon){
 	var that=this;
-	if (OS_ANDROID){
+	if (OS_ANDROID && Ti.Platform.Android.API_LEVEL > 11){
 		if (!that.activity){
 			console.log('Error: Unable to get activity...weird');
 		}else{
@@ -88,7 +88,7 @@ actionBarHelper.prototype.setIcon=function(icon){
 }
 actionBarHelper.prototype.hide=function(){
 	var that=this;
-	if (OS_ANDROID){
+	if (OS_ANDROID && Ti.Platform.Android.API_LEVEL > 11){
 		if (!that.activity){
 			console.log('Error: Unable to get activity...weird');
 		}else{
@@ -102,7 +102,7 @@ actionBarHelper.prototype.hide=function(){
 }
 actionBarHelper.prototype.show=function(){
 	var that=this;
-	if (OS_ANDROID){
+	if (OS_ANDROID && Ti.Platform.Android.API_LEVEL > 11){
 		if (!that.activity){
 			console.log('Error: Unable to get activity...weird');
 		}else{
@@ -116,7 +116,7 @@ actionBarHelper.prototype.show=function(){
 }
 actionBarHelper.prototype.reloadMenu=function(){
 	var that=this;
-	if (OS_ANDROID){
+	if (OS_ANDROID && Ti.Platform.Android.API_LEVEL > 11){
 		if (!that.activity){
 			console.log('Error: Unable to get activity...weird');
 		}else{
@@ -125,7 +125,4 @@ actionBarHelper.prototype.reloadMenu=function(){
 	}
 }
 //
-
 exports.actionBarHelper=actionBarHelper;
-
-

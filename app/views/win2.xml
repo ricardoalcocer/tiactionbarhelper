@@ -1,0 +1,4 @@
+<Alloy>
+	<Window id="win2" class="container" onOpen="doopen">
+	</Window>
+</Alloy>

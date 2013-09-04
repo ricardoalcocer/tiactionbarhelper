@@ -4,8 +4,8 @@ function doopen(e){
 	// we set the library only when the activity is available
 	ABH=require('actionbarhelper').actionBarHelper;
 	actionBarHelper=new ABH($.index);
-
-	actionBarHelper.setTitle('Alco Testing 123');
+	actionBarHelper.reloadMenu(); // this forces the actionbar to show menu options from XML
+	actionBarHelper.setTitle('I dare you to change me');
 }
 
 function changeTitle(){
@@ -36,6 +36,26 @@ function show(){
 
 function hide(){
 	actionBarHelper.hide();
+}
+
+function onsaveclick(e){
+	alert('Clicked save');
+}
+
+function onimageclick(e){
+	alert('Clicked Image');
+}
+
+function onaboutclick(e){
+	alert('Clicked about');
+}
+
+function oncreditsclick(e){
+	alert('Clicked credits');
+}
+
+function opennewwin(){
+	Alloy.createController('win2').getView().open();
 }
 
 $.index.open();

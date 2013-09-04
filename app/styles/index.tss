@@ -1,7 +1,8 @@
 ".container": {
 	backgroundColor:"white",
 	navBarHidden:false,
-	layout: "vertical"
+	layout: "vertical",
+	exitOnClose:true
 },
 "Label": {
 	width: Ti.UI.SIZE,
