@@ -6,13 +6,12 @@ This CommonJS class for Appcelerator Titanium wraps the Android ActionBar functi
 
 ## Example
 
-To use the ActionBarHelper class, simply require it and create an instance, passing your window as argument.
+To use the ActionBarHelper class, simply require and it, passing your window as argument.
 
 Note: To work with the ActionBar your Android activity needs to exist.  This means that initial settings for the ActionBar need to be performed on the "Open" event of your Window.
 
-```
-var ABH=require('actionbarhelper').actionBarHelper;
-var actionBarHelper=new ABH($.index);	
+```javascript
+var actionBarHelper = require('actionbarhelper')($.index);	
 
 actionBarHelper.setTitle('This is my window title');
 ```
