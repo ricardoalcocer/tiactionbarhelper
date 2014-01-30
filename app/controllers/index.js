@@ -1,9 +1,8 @@
-var ABH,actionBarHelper;
+var actionBarHelper;
 
 function doopen(e){
 	// we set the library only when the activity is available
-	ABH=require('actionbarhelper').actionBarHelper;
-	actionBarHelper=new ABH($.index);
+	actionBarHelper=require('actionbarhelper')($.index);
 	actionBarHelper.reloadMenu(); // this forces the actionbar to show menu options from XML
 	actionBarHelper.setTitle('I dare you to change me');
 }

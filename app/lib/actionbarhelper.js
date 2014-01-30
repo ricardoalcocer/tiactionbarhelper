@@ -14,115 +14,77 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-var actionBarHelper=function(win){
-	if (OS_ANDROID && Ti.Platform.Android.API_LEVEL > 11){
-		this.win=win;
-		this.activity=win.getActivity();
-		this.actionBar=this.activity.actionBar;
-	}else{
-		console.log('This is an Android-only library.');
-	}
-}
-actionBarHelper.prototype.setTitle=function(title){
-	var that=this;
-	if (OS_ANDROID && Ti.Platform.Android.API_LEVEL > 11){
-		if (!that.activity){
-			console.log('Error: Unable to get activity...weird');
+module.exports = function(o){
+	var actionBarHelper=function(win){
+		// make it useable in classic titanium
+		var isAndroid = Ti.Platform.osname === 'android';
+		if (!isAndroid){
+			console.log('This is an Android-only library.');
+			this.works = false;
+		}else if(Ti.Platform.Android.API_LEVEL <= 11){
+			console.log('Needs at least API Level 11.');
+			this.works = false;
 		}else{
-			if (that.actionBar){
-				that.actionBar.title=title;		
-			}else{
-				console.log('Error: I don\'t see an action bar here');
-			}	
-		}		
-	}
-}
-actionBarHelper.prototype.setUpAction=function(action){
-	var that=this;
-	if (OS_ANDROID && Ti.Platform.Android.API_LEVEL > 11){
-		if (!that.activity){
-			console.log('Error: Unable to get activity...weird');
+			this.win=win;
+			this.activity=win.getActivity();
+			this.actionBar=this.activity.actionBar;
+			this.works = true;
+		}
+	};
+	actionBarHelper.prototype.setTitle=function(title){
+		if (this.works){
+			this.actionBar.setTitle(title);
 		}else{
-			if (that.actionBar){
-				if(action){
-					that.actionBar.displayHomeAsUp=true;	
-					that.actionBar.onHomeIconItemSelected=action;
-				}else{
-					that.actionBar.displayHomeAsUp=false;
-					that.actionBar.onHomeIconItemSelected=null;
-				}
-			}else{
-				console.log('Error: I don\'t see an action bar here');
-			}	
-		}		
-	}
-}
-actionBarHelper.prototype.setBackgroundImage=function(image){
-	var that=this;
-	if (OS_ANDROID && Ti.Platform.Android.API_LEVEL > 11){
-		if (!that.activity){
-			console.log('Error: Unable to get activity...weird');
+			console.log('Error: this does not work');
+		}
+	};
+	actionBarHelper.prototype.setUpAction=function(action){
+		if (this.works && 'function' === typeof action){
+			this.actionBar.displayHomeAsUp=true;	
+			this.actionBar.onHomeIconItemSelected=action;
+		}else if(this.works){
+			this.actionBar.displayHomeAsUp=false;	
+			this.actionBar.onHomeIconItemSelected=null;
 		}else{
-			if (that.actionBar){
-				that.actionBar.backgroundImage=image;	
-			}else{
-				console.log('Error: I don\'t see an action bar here');
-			}	
-		}		
-	}
-}
-actionBarHelper.prototype.setIcon=function(icon){
-	var that=this;
-	if (OS_ANDROID && Ti.Platform.Android.API_LEVEL > 11){
-		if (!that.activity){
-			console.log('Error: Unable to get activity...weird');
+			console.log('Error: this does not work');
+		}
+	};
+	actionBarHelper.prototype.setBackgroundImage=function(image){
+		if (this.works){
+			this.actionBar.setBackgroundImage(image);
 		}else{
-			if (that.actionBar){
-				that.actionBar.icon=icon;	
-				that.actionBar.logo=icon;
-			}else{
-				console.log('Error: I don\'t see an action bar here');
-			}	
-		}		
-	}
-}
-actionBarHelper.prototype.hide=function(){
-	var that=this;
-	if (OS_ANDROID && Ti.Platform.Android.API_LEVEL > 11){
-		if (!that.activity){
-			console.log('Error: Unable to get activity...weird');
+			console.log('Error: this does not work');
+		}
+	};
+	actionBarHelper.prototype.setIcon=function(icon){
+		if (this.works){
+			this.actionBar.icon=icon;	
+			this.actionBar.logo=icon;
 		}else{
-			if (that.actionBar){
-				that.actionBar.hide();
-			}else{
-				console.log('Error: I don\'t see an action bar here');
-			}	
-		}		
-	}
-}
-actionBarHelper.prototype.show=function(){
-	var that=this;
-	if (OS_ANDROID && Ti.Platform.Android.API_LEVEL > 11){
-		if (!that.activity){
-			console.log('Error: Unable to get activity...weird');
+			console.log('Error: this does not work');
+		}
+	};
+	actionBarHelper.prototype.hide=function(){
+		if (this.works){
+			this.actionBar.hide();
 		}else{
-			if (that.actionBar){
-				that.actionBar.show();
-			}else{
-				console.log('Error: I don\'t see an action bar here');
-			}	
-		}		
-	}
-}
-actionBarHelper.prototype.reloadMenu=function(){
-	var that=this;
-	if (OS_ANDROID && Ti.Platform.Android.API_LEVEL > 11){
-		if (!that.activity){
-			console.log('Error: Unable to get activity...weird');
+			console.log('Error: this does not work');
+		}
+	};
+	actionBarHelper.prototype.show=function(){
+		if (this.works){
+			this.actionBar.show();
 		}else{
-			that.activity.invalidateOptionsMenu();
-		}		
-	}
-}
-//
-exports.actionBarHelper=actionBarHelper;
+			console.log('Error: this does not work');
+		}
+	};
+	actionBarHelper.prototype.reloadMenu=function(){
+		if (this.works){
+			this.activity.invalidateOptionsMenu();
+		}else{
+			console.log('Error: this does not work');
+		}
+	};
+	
+	return new actionBarHelper(o);
+};
