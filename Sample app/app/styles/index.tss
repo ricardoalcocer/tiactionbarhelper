@@ -1,0 +1,15 @@
+".container": {
+	backgroundColor:"white",
+	navBarHidden:false,
+	layout: "vertical",
+	exitOnClose:true
+},
+"Label": {
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE,
+	color: "#000"
+} 
+
+"Button":{
+	color: "#000"
+}
