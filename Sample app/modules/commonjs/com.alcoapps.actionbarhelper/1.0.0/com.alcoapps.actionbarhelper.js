@@ -21,9 +21,6 @@ module.exports = function(o){
 		if (!isAndroid){
 			console.log('This is an Android-only library.');
 			this.works = false;
-		}else if(Ti.Platform.Android.API_LEVEL <= 11){
-			console.log('Needs at least API Level 11.');
-			this.works = false;
 		}else{
 			this.win=win;
 			this.activity=win.getActivity();
