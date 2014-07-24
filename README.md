@@ -4,6 +4,8 @@
 
 This CommonJS class for Appcelerator Titanium wraps the Android ActionBar functionalities so it is super easy to implement.
 
+Full blog post at [http://www.appcelerator.com/blog/2013/09/using-androids-actionbar/](http://www.appcelerator.com/blog/2013/09/using-androids-actionbar/)
+
 ## Installation
 Grab the file from the /dist folder.  Decompress this file onto **/modules/commonjs** on your app's root folder, the folder with tiapp.xml.  If **/modules/commonjs** doesn't exists, create it.
 
